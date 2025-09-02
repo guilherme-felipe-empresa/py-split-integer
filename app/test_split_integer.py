@@ -9,13 +9,6 @@ TESTES_VALUES: list = [
     (32, 6, [5, 5, 5, 5, 6, 6])
 ]
 
-TESTES_VALUES2: list = [
-    (8, 1, [8]),
-    (10, 1, [10]),
-    (7, 1, [7]),
-    (101, 1, [101])
-]
-
 
 @pytest.mark.parametrize(VARS, TESTES_VALUES)
 def test_sum_of_the_parts_should_be_equal_to_value(
@@ -32,13 +25,10 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert len(split_integer(5, 1)) == 1
 
 
-@pytest.mark.parametrize(VARS, TESTES_VALUES2)
-def test_should_return_part_equals_to_value_when_split_into_one_part(
-    first_value: int,
-    second_value: int,
-    result: list
-) -> None:
-    assert split_integer(first_value, second_value) == result
+def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
+    assert split_integer(8, 1) == [8]
+    assert split_integer(10, 1) == [10]
+    assert split_integer(101, 1) == [101]
 
 
 @pytest.mark.parametrize(VARS, TESTES_VALUES)
